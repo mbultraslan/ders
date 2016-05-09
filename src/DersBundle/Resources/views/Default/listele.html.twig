@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    Ders listele
+{% endblock title %}
+
+{% block body %}
+    {% for d in dersler %}
+      {{ d.id }} -> {{ d.baslik }} <a href="{{ path('ders-detay',{'id':d.id }) }}">Detay</a> <a href="{{ path('ders-sil', {'id':d.id}) }}">Sil</a><br>
+    {% endfor %}
+{% endblock body %}

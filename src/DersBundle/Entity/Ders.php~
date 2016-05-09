@@ -1,0 +1,45 @@
+<?php
+
+namespace DersBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ders
+ *
+ * @ORM\Table(name="dersler")
+ * @ORM\Entity(repositoryClass="DersBundle\Repository\DersRepository")
+ */
+class Ders
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="baslik", type="string", length=255)
+     */
+    private $baslik;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Konu" , mappedBy="ders")
+     */
+private $konular;
+
+    public function __construct()
+    {
+        $this->konular=new ArrayCollection();
+
+    }
+
+}
+

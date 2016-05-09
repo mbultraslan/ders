@@ -1,0 +1,41 @@
+<?php
+
+namespace DersBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Konu
+ *
+ * @ORM\Table(name="konular")
+ * @ORM\Entity(repositoryClass="DersBundle\Repository\KonuRepository")
+ */
+class Konu
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="baslik", type="string", length=255)
+     */
+    private $baslik;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ders", inversedBy="konular")
+     * @ORM\JoinColumn(name="ders_id",  referencedColumnName="id", onDelete="CASCADE")
+     */
+
+
+    private $ders;
+
+}
+

@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+Ders ekle
+{% endblock title %}
+
+{% block body %}
+   Ders Ekle <br>
+    <form action="{{ path ('ders-ekle') }}" method="post">
+        <input type="text" name="baslik">
+        <input type="submit" value="Kaydet">
+
+    </form>
+{% endblock body %}

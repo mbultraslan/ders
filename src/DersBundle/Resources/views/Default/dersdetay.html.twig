@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    Ders detay
+{% endblock title %}
+
+{% block body %}
+    {{ ders.baslik }}<br>
+
+    {% for d in ders.konular %}
+      {{ d.id }} -> {{ d.baslik }} <a href="{{ path('konu-sil', {'id' :d.id}) }}">Sil</a><br>
+    {% endfor %}
+
+
+    <br/>
+    Yeni Konu
+    <form action="{{ path('konu-ekle') }}" method="post">
+        <input type="text" name="baslik" >
+        <input type="hidden" name="ders_id" value="{{ ders.id }}">
+        <input type="submit" value="Kaydet">
+    </form>
+{% endblock body %}
